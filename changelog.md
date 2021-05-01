@@ -10,6 +10,7 @@ V1.0- Game has been completed and works
 
 V1.1- Added a map barrier so that the player can no longer move in a certain direction forever
 
+
 Future Plans:
 
 -To add a visual map that you use as a reference to know where you are at the moment
