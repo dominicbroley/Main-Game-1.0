@@ -1,13 +1,15 @@
 # Name: Dominic Broley
 # Class: CS30 Quint 4
-# Date: April 26, 2021
-# Description: RPG Class Assignment
+# Date: April 29, 2021
+# Description: Game
 # Adapted code from https://github.com/kynite/FishingRPG
 
 
 # World and user information imported to main file
 import world
+from world import *
 from player import Player
+import places as pl
 
 
 # Game only breaks when you move south and east after leaving the map
@@ -18,8 +20,8 @@ def location():
     while True:
         # Instructions explaining how to move and quit
         print("\n\nType 'quit' to quit at any time.")
-        print("\nMap is a 3x3 tile grid and you begin in the bottom middle.")
-        print("If you leave the map boundaries, it will no longer work.")
+        print("\nThe map is a 3x3 tile grid. You begin in the top left.")
+        print("The end of the map is the bottom right. Good Luck!")
         print("Which direction would you like to travel in?")
         print("Type one of the following: 'north', 'east', 'south', 'west'.")
         # Allows the user to move in one of the four directions
@@ -33,61 +35,119 @@ def location():
                 for x, object in enumerate(row):
                     # If the object is a user, then move north
                     if isinstance(object, Player):
-                        # Moves the user in north direction
+                        if isinstance(world.world_map[y - 1][x], cave):
+                            pl.cave()
+                        elif isinstance(world.world_map[y - 1][x], barrier):
+                            pl.barrier()
+                        elif isinstance(world.world_map[y - 1][x], farm):
+                            pl.farm()
+                        elif isinstance(world.world_map[y - 1][x], forest):
+                            pl.forest()
+                        elif isinstance(world.world_map[y - 1][x], mountain):
+                            pl.mountain()
+                        elif isinstance(world.world_map[y - 1][x], end):
+                            pl.end()
+                        else:
+                            # Moves the user in the north
                             world.world_map[y - 1][x] = object
-                            # Replaces tile with no value
-                            world.world_map[y][x] = None
-                            # Reloads the location call to continue the map
-                            location()
-                            # Returns the new y value or user position
-                            return
-        # Checks if the user types 'east'
-        elif user == 'east':
-            # Finds user in the world_map
-            for y, row in enumerate(world.world_map):
-                for x, object in enumerate(row):
-                    # If the object is a user, then move east
-                    if isinstance(object, Player):
-                            # Moves the user in east direction
-                            world.world_map[y][x + 1] = object
                             # Replaces tile with no value
                             world.world_map[y][x] = None
                             # Reloads the location call to continue the map
                             location()
                             # Returns the new y value/user position
                             return
-        # Checks if the user types 'south'
-        elif user == 'south':
-            # Finds user in the world_map
+        # Checks to see if user typed in movement command
+        elif user == 'east':
+            # Finds Player in the world_map
             for y, row in enumerate(world.world_map):
                 for x, object in enumerate(row):
-                    # If the object is a user, then move south
+                    # if the object is a player move east
                     if isinstance(object, Player):
-                            # Moves the user in south direction
-                            world.world_map[y + 1][x] = object
-                            # Replaces tile with no value
+                        # Checks to see if the Player is going to move into
+                        # another object and runs something else
+                        if isinstance(world.world_map[y][x + 1], cave):
+                            pl.cave()
+                        elif isinstance(world.world_map[y][x + 1], barrier):
+                            pl.barrier()
+                        elif isinstance(world.world_map[y][x + 1], farm):
+                            pl.farm()
+                        elif isinstance(world.world_map[y][x + 1], forest):
+                            pl.forest()
+                        elif isinstance(world.world_map[y][x + 1], mountain):
+                            pl.mountain()
+                        elif isinstance(world.world_map[y][x + 1], end):
+                            pl.end()
+                        else:
+                            # moves the player east
+                            world.world_map[y][x + 1] = object
+                            # replaces tile with no value
                             world.world_map[y][x] = None
-                            # Reloads the location call to continue the map
+                            # reloads the location call to continue the map
                             location()
-                            # Returns the new y value/ user position
+                            # returns the new y value/ player position
                             return
-        # Checks if the user types 'west'
-        elif user == 'west':
-            # Finds user in the world_map
+        # Checks to see if user typed in movement command
+        elif user == 'south':
+            # Finds Player in the world_map
             for y, row in enumerate(world.world_map):
                 for x, object in enumerate(row):
-                    # If the object is a user, then move west
+                    # if the object is a player move south
                     if isinstance(object, Player):
-                        # Moves the user in west direction
-                            world.world_map[y][x - 1] = object
-                            # Replaces tile with no value
+                        # Checks to see if the Player is going to move into
+                        # another object and runs something else
+                        if isinstance(world.world_map[y + 1][x], cave):
+                            pl.cave()
+                        elif isinstance(world.world_map[y + 1][x], barrier):
+                            pl.barrier()
+                        elif isinstance(world.world_map[y + 1][x], farm):
+                            pl.farm()
+                        elif isinstance(world.world_map[y + 1][x], forest):
+                            pl.forest()
+                        elif isinstance(world.world_map[y + 1][x], mountain):
+                            pl.mountain()
+                        elif isinstance(world.world_map[y + 1][x], end):
+                            pl.end()
+                        else:
+                            # moves the player south
+                            world.world_map[y + 1][x] = object
+                            # replaces tile with no value
                             world.world_map[y][x] = None
-                            # Reloads the location call to continue the map
+                            # reloads the location call to continue the map
                             location()
-                            # Returns the new y value/ user position
+                            # returns the new y value/ player position
+                            return
+        elif user == 'west':
+            # Finds Player in the world_map
+            for y, row in enumerate(world.world_map):
+                for x, object in enumerate(row):
+                    # if the object is a player move west
+                    if isinstance(object, Player):
+                        # Checks to see if the Player is going to move into
+                        # another object and runs something else
+                        if isinstance(world.world_map[y][x - 1], cave):
+                            pl.cave()
+                        elif isinstance(world.world_map[y][x - 1], barrier):
+                            pl.barrier()
+                        elif isinstance(world.world_map[y][x - 1], farm):
+                            pl.farm()
+                        elif isinstance(world.world_map[y][x - 1], forest):
+                            pl.forest()
+                        elif isinstance(world.world_map[y][x - 1], mountain):
+                            pl.mountain()
+                        elif isinstance(world.world_map[y][x - 1], end):
+                            pl.end()
+                        else:
+                            # moves the player west
+                            world.world_map[y][x - 1] = object
+                            # replaces tile with no value
+                            world.world_map[y][x] = None
+                            # reloads the location call to continue the map
+                            location()
+                            # returns the new y value/ player position
                             return
         elif user == 'quit':
             break
         else:
-            print('\nInvalid Command, please try again and check spelling.')
+            print('Invalid Option')
+
 location()
