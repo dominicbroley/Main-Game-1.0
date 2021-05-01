@@ -1,6 +1,6 @@
 # Name: Dominic Broley
 # Class: CS30 Quint 4
-# Date: April 29, 2021
+# Date: April 30, 2021
 # Description: Game
 # Adapted code from https://github.com/kynite/FishingRPG
 
@@ -11,13 +11,13 @@ from enemy import *
 
 def cave():
     while True:
-        print("You enter a cave and a skeleton approaches you!")
+        print("You enter a cave and a zombie approaches you!")
         print("Would you like to 'fight' or 'leave'?")
         print("(Leaving will put you back on the previous tile.)")
         action = input("choose an action: ")
         # Checks to see if user typed in fight
         if action == "fight":
-            player.fight(Skeleton())
+            player.fight(Zombie())
         # Checks to see if user typed in leave
         elif action == "leave":
             # Exits the area and goes back to map
