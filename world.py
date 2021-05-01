@@ -1,6 +1,6 @@
 # Name: Dominic Broley
 # Class: CS30 Quint 4
-# Date: April 29, 2021
+# Date: April 30, 2021
 # Description: Game
 # Adapted code from https://github.com/kynite/FishingRPG
 
@@ -72,12 +72,8 @@ class end(MapTile):
 
 
 # The World Map
-world_map = [[barrier(0, 0), barrier(1, 0), barrier(2, 0)],
-             [barrier(3, 0), barrier(4, 0)],
+world_map = [[barrier(0, 0), barrier(1, 0), barrier(2, 0), barrier(3, 0), barrier(4, 0)],
              [barrier(0, 1), player, None, cave(3, 1), barrier(4, 1)],
-             [barrier(0, 2), forest(1, 2), None],
-             [mountain(3, 2), barrier(4, 2)],
-             [barrier(0, 3), farm(1, 3), None],
-             [end(3, 3), barrier(4, 3)],
-             [barrier(0, 4), barrier(1, 4), barrier(2, 4)],
-             [barrier(3, 4), barrier(4, 4)]]
+             [barrier(0, 2), forest(1, 2), None, mountain(3, 2), barrier(4, 2)],
+             [barrier(0, 3), farm(1, 3), None, end(3, 3), barrier(4, 3)],
+             [barrier(0, 4), barrier(1, 4), barrier(2, 4), barrier(3, 4), barrier(4, 4)]]
