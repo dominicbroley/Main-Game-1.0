@@ -12,6 +12,9 @@ V1.1- Added a map barrier so that the player can no longer move in a certain dir
 
 Future Plans:
 -To add a visual map that you use as a reference to know where you are at the moment
+
 -To add items and weapons that you can use throughout any point of the game
+
 -To add a storyline that follows the player’s journey throughout the game
+
 -To fix the fighting repetition that occurs upon defeating an enemy by keeping the enemy that you defeated dead and allowing you to travel to that new tile
