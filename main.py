@@ -1,7 +1,7 @@
 # Name: Dominic Broley
 # Class: CS30 Quint 4
-# Date: April 29, 2021
-# Description: Game
+# Date: April 30, 2021
+# Description: Final RPG Game Assigment
 # Adapted code from https://github.com/kynite/FishingRPG
 
 
@@ -12,7 +12,7 @@ from player import Player
 import places as pl
 
 
-# Game only breaks when you move south and east after leaving the map
+# Allows movement around the map
 def location():
     global world_map
     """Commands that allow for movement on the map"""
