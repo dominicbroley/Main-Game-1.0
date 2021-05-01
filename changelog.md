@@ -1,6 +1,6 @@
 CHANGELOG
 
-V0.5 - Made Map
+V0.5 - Made Map without locations
 
 V0.6/RPG Class Assignment - Made the player able to move around the 3 by 3 map
 
